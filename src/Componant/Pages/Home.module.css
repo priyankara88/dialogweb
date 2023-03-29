@@ -1,0 +1,13 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.Home__main__conatainer {
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+  background: rgb(241, 236, 236);
+  color: rgb(124, 101, 224);
+}
