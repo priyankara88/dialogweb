@@ -9,6 +9,7 @@ import { getAuth } from "firebase/auth";
 const firebaseConfig = {
     apiKey: "AIzaSyApeCE-AAeeq2sWCaZkcLx54GsCd85ZMTs",
     authDomain: "dialog-6fde2.firebaseapp.com",
+    databaseURL: "https://dialog-6fde2-default-rtdb.firebaseio.com",
     projectId: "dialog-6fde2",
     storageBucket: "dialog-6fde2.appspot.com",
     messagingSenderId: "827719139318",

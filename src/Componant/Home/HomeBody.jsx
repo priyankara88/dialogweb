@@ -1,7 +1,9 @@
 import { useRef, useState } from "react";
 import Style from "./HomeBody.module.css";
 import BuildIcon from "@mui/icons-material/Build";
-import { color } from "@mui/system";
+
+import { collection, addDoc } from "firebase/firestore";
+import db from "../../firebase/firebase";
 
 const homebodybutton = ["money", "data", "voice", "sms"];
 const reloadtype = [
@@ -23,6 +25,22 @@ const datatype = [
   // { type: "Data Add On", mb: "1 GB", price: "Rs 96 + Tax", status: "Active" },
   // { type: "Data Add On", mb: "2 GB", price: "Rs 168 + tax", status: "Active" },
 ];
+
+const FireBase = () => {
+  addDoc(collection(db, "money"), {
+    first: "Ada",
+    last: "Lovelace",
+    born: 1815,
+  })
+    .then((docRef) => {
+      console.log(123);
+      console.log("Document written with ID: ", docRef.id);
+    })
+    .catch((error) => {
+      console.log(123);
+      console.error("Error adding document: ", error);
+    });
+};
 
 // const maincontenttopbutton=useRef([]);
 
@@ -46,6 +64,8 @@ const HomeBody = () => {
       {/* main contant */}
 
       <MainContent />
+
+      <button onClick={FireBase}>click</button>
     </div>
   );
 };
@@ -53,7 +73,7 @@ const HomeBody = () => {
 export default HomeBody;
 
 const MainContent = () => {
-  const [selectedTab, setSelectedTab] = useState("amila");
+  const [selectedTab, setSelectedTab] = useState("money");
   const homebody__maincontenttop_buttonref = useRef([]);
   return (
     <div>
