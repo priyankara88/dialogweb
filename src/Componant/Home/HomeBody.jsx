@@ -1,5 +1,7 @@
 import { useRef, useState } from "react";
 import Style from "./HomeBody.module.css";
+import BuildIcon from "@mui/icons-material/Build";
+import { color } from "@mui/system";
 
 const homebodybutton = ["money", "data", "voice", "sms"];
 const reloadtype = [
@@ -11,6 +13,17 @@ const reloadtype = [
   { price: 600, name: "Buy" },
   { price: 700, name: "Buy" },
 ];
+
+const datatype = [
+  { type: "Internet card", mb: "604 MB", price: "Rs 119", status: "Active" },
+  { type: "Internet card", mb: "1.31 GB", price: "Rs 239", status: "Active" },
+  { type: "Any Time", mb: "0.7 GB", price: "Rs 77", status: "Active" },
+  { type: "Any Time", mb: "1 GB", price: "Rs 105", status: "Active" },
+  { type: "Any Time", mb: "1.7 GB", price: "Rs 155", status: "Active" },
+  // { type: "Data Add On", mb: "1 GB", price: "Rs 96 + Tax", status: "Active" },
+  // { type: "Data Add On", mb: "2 GB", price: "Rs 168 + tax", status: "Active" },
+];
+
 // const maincontenttopbutton=useRef([]);
 
 const HomeBody = () => {
@@ -22,7 +35,9 @@ const HomeBody = () => {
           // arr[0] = { ...arr[0], age: 25 };
         }}
       >
-        test Data 2023-01-25
+        <div className={Style.main_info}>
+          Hear's info as at 11:02 AM Today pull of refersh
+        </div>
       </div>
 
       {/* refresh */}
@@ -85,6 +100,14 @@ const MainContent = () => {
         <Quickreload />
         {/* recomended pakage */}
         <Recomendeddatapakage />
+
+        {/* riging tones */}
+        <Rigingtones />
+
+        {/* All pakeges */}
+        <Allpakages />
+        {/* Other Services */}
+        <Otherservices />
       </div>
     </div>
   );
@@ -173,6 +196,7 @@ const MainContentBottom = ({ selTab }) => {
 const Quickreload = () => {
   return (
     <div>
+      <div className={Style.TONES_title}>Quick Reload</div>
       <div className={Style.quick_reload_main_content}>
         {/* <p className={Style.quickpara}>Quick Reload</p> */}
 
@@ -190,19 +214,83 @@ const Quickreload = () => {
 const Recomendeddatapakage = () => {
   return (
     <div>
+      <div className={Style.TONES_title}>Recommended Data Pakages</div>
       <div className={Style.Recomendeddatapakage_maincontainer}>
-        <div className={Style.Recomendeddatapakage_subcontainer}>
+        {datatype.map((obj) => (
           <div className={Style.Recomendeddatapakage_pakeges_container}>
             <div className={Style.Recomendeddatapakage_validDate}>
-              <p>valid for 21 days</p>
+              <p className={Style.valid}>valid for 21 days</p>
             </div>
             <div className={Style.Recomendeddatapakage_other_detais}>
-              <p>Internet card</p>
-              <p>604 MB</p>
-              <p>Rs 119</p>
-              <p>Active</p>
+              <p className={Style.valid}>{obj.type}</p>
+              <p className={Style.mb}>{obj.mb}</p>
+              <p className={Style.rs}>{obj.price}</p>
+              <p className={Style.active}>{obj.status}</p>
             </div>
           </div>
+        ))}
+      </div>
+    </div>
+  );
+};
+
+const Rigingtones = () => {
+  return (
+    <div>
+      <div className={Style.TONES_title}> Ringing Tones</div>
+      <div className={Style.riging_tones_main_container}>
+        <p className={Style.RingIN}>RingIN</p>
+        <p className={Style.TONES}>TONES</p>
+      </div>
+    </div>
+  );
+};
+
+const Allpakages = () => {
+  return (
+    <div>
+      <div className={Style.TONES_title}>All Pakages</div>
+      <div className={Style.allpakages_main_container}>
+        <div className={Style.allpakages_sub_container}>
+          <BuildIcon sx={{ color: "#54014c" }} />
+          <p className={Style.TONES}>Data pakages</p>
+        </div>
+        <div className={Style.allpakages_sub_container}>
+          <BuildIcon sx={{ color: "#54014c" }} />
+          <p className={Style.TONES}>Combo Pakages</p>
+        </div>
+        <div className={Style.allpakages_sub_container}>
+          <BuildIcon sx={{ color: "#54014c" }} />
+          <p className={Style.TONES}>Voice Pakages</p>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+const Otherservices = () => {
+  return (
+    <div>
+      <div className={Style.TONES_title}>Other Services</div>
+      <div className={Style.allpakages_main_container}>
+        <div className={Style.allpakages_sub_container}>
+          <BuildIcon sx={{ color: "#54014c" }} />
+          <p className={Style.TONES}>
+            Get Your New
+            <br /> Conection
+          </p>
+        </div>
+        <div className={Style.allpakages_sub_container}>
+          <BuildIcon sx={{ color: "#54014c" }} />
+          <p className={Style.TONES}>My Plan</p>
+        </div>
+        <div className={Style.allpakages_sub_container}>
+          <BuildIcon sx={{ color: "#54014c" }} />
+          <p className={Style.TONES}>Share credit</p>
+        </div>
+        <div className={Style.allpakages_sub_container}>
+          <BuildIcon sx={{ color: "#54014c" }} />
+          <p className={Style.TONES}>Upgrade to postpaid</p>
         </div>
       </div>
     </div>

@@ -13,10 +13,10 @@ const Footer = () => {
     <>
       <div className={Style.footer__container}>
         <FooterComponant Icon={HomeIcon} title="Home" />
-        <FooterComponant Icon={HomeIcon} title="Home" />
-        <FooterComponant Icon={HomeIcon} title="Home" />
-        <FooterComponant Icon={HomeIcon} title="Home" />
-        <FooterComponant Icon={HomeIcon} title="Home" />
+        <FooterComponant Icon={BuildIcon} title="Support" />
+        <FooterComponant Icon={ShowerIcon} title="My Offers" />
+        <FooterComponant Icon={NightShelterIcon} title="Notification" />
+        <FooterComponant Icon={LocalFireDepartmentIcon} title="Menue" />
       </div>
     </>
   );
